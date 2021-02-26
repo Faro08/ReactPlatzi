@@ -1,14 +1,14 @@
-import React from 'react'
+import React from 'react';
 
 import './styles/BadgesList.css'
 
 class BadgeList extends React.Component{
     render (){
         return (
-            <ul className="list-unstyled">
+            <ul className="list-unstyled BadgesList">
                 {this.props.badges.map( (badge) =>{
                     return(
-                        <li key={badge.id} classNane="BadgesListItem">
+                        <li key={badge.id} className="BadgesListItem">
                             <img src={badge.avatarUrl} alt="avatar" className="BadgesListItem__avatar"/>
                             <div>
                                 <div>

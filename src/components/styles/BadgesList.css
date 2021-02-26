@@ -24,9 +24,12 @@
 
 .Twitter__logo {
   display: inline-block;
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 1rem;
+  height: 1rem;
   background: url("../../images/twitter-seeklogo.svg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   margin-right: 0.3rem;
   vertical-align: middle;
 }
