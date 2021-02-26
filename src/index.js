@@ -10,7 +10,8 @@ import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 
 import './global.css';
-import BadgeNew from './pages/BadgeNew';
+/* import BadgeNew from './pages/BadgeNew'; */
+import Badges from './pages/Badges'; //crear nueva pagina
 
 
 
@@ -18,12 +19,9 @@ const container = document.getElementById('app');
 
 // ReactDOM.render(__qué__, __dónde__);
 ReactDOM.render(
-    <BadgeNew
+    <Badges/> , container ); // renderizar Badges
        /*  firstName="Farid"
         lastName="Pasi "
         avatarUrl="https://www.gravatar.com/avatar?d=identicon"
         jobTitle="Frontend Developer"
         twitter="faridgp8" */
-/>, 
-container
-);
