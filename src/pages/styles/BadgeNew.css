@@ -7,3 +7,9 @@
   color: #ffffff;
   text-align: center;
 }
+
+.BadgeNew__container {
+  width: 100%;
+  margin: auto;
+  max-width: 580px;
+}

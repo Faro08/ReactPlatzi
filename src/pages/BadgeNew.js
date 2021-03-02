@@ -32,7 +32,7 @@ class BadgeNew extends React.Component{
                     <img className="img-fluid" src={header} alt="Logo"/>
                 </div>
 
-                <div className="container">
+                <div className="BadgeNew__container">
                     <div className="row">
                         <div className="col-6">
                             <Badge
@@ -51,7 +51,6 @@ class BadgeNew extends React.Component{
                             />
                         </div>
                     </div>
-
                 </div>
             </React.Fragment>
         );  

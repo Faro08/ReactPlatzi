@@ -28,4 +28,4 @@ class BadgeList extends React.Component{
     }
 }
 
-export default BadgeList
+export default BadgeList;
