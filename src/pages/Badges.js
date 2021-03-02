@@ -5,6 +5,8 @@ import './styles/Badges.css';
 import confLogo from '../images/badge-header.svg';
 /* import Navbar from '../components/Navbar'; quito el import y el render*/
 import BadgesList from '../components/BadgesList';
+import PageLoading from '../components/PageLoading';
+import api from '../api';
 
 class Badges extends React.Component { //declarar clase
 
@@ -14,15 +16,21 @@ class Badges extends React.Component { //declarar clase
         super(props);
         console.log('1.constructor()');
 
-        this.state = {
+       /*  this.state = {
             data: [],
+        } */
+
+        this.state ={
+            loading: true,
+            error: null,
+            data: undefined,
         }
     }
 
     componentDidMount(){
         console.log('3.componentDidMount()');
 
-        this.timeoutId = setTimeout(() => {
+        /* this.timeoutId = setTimeout(() => {
             this.setState({
                 data: [
                     {
@@ -54,10 +62,26 @@ class Badges extends React.Component { //declarar clase
                     },
                 ],
             });
-        }, 3000);
+        }, 3000); */
 
+
+        /* > Solicitando datos GET */
+        this.fetchData()
         
     }
+
+    fetchData = async () => {
+        this.setState ({ loading: true, error: null});
+
+        try{ /* si hay error lo captura y lo guarda en el estado */
+            const data = await api.badges.list();
+            this.setState({ loading: false, data: data});
+        } catch (error) {
+            this.setState({ loading: false, error: error});
+        }
+    }
+
+    /* Solicitando datos GET < */
 
     componentDidUpdate(prevProps, prevState){
         console.log('5.componentDidUpdate()'); 
@@ -78,6 +102,16 @@ class Badges extends React.Component { //declarar clase
 
     render (){  //metodo render
         console.log('2/4.render()');
+
+        if(this.state.loading === true){ /* Solicitando datos GET */
+            return <PageLoading/>;
+        }
+
+        if(this.state.error){
+            return `Error: ${this.state.error.message}`;
+
+        }
+
         return (
             <React.Fragment>
                 
