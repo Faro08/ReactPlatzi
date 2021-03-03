@@ -6,11 +6,10 @@ import confLogo from '../images/badge-header.svg';
 /* import Navbar from '../components/Navbar'; quito el import y el render*/
 import BadgesList from '../components/BadgesList';
 import PageLoading from '../components/PageLoading';
+import PageError from '../components/PageError';
 import api from '../api';
 
 class Badges extends React.Component { //declarar clase
-
-    
 
     constructor(props){
         super(props);
@@ -108,7 +107,7 @@ class Badges extends React.Component { //declarar clase
         }
 
         if(this.state.error){
-            return `Error: ${this.state.error.message}`;
+            return <PageError error={this.state.error}/>;
 
         }
 

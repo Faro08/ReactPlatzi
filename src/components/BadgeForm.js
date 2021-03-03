@@ -18,17 +18,18 @@ class BadgeForm extends React.Component{
         console.log("Button was clicked");
     };
 
-    handleSubmit = e => {
+    /* handleSubmit = e => {
         e.preventDefault();
         console.log('Forma was sumbmitted');
         console.log(this.state);
 
-    };
+    }; */
+
     render(){
         return(
             <div>
                 <h1>Participante</h1>
-                <form onSubmit={this.handleSubmit}>
+                <form onSubmit={this.props.onSubmit}>
                     <div className="form-group">
                         <label>First Name</label>
                         <input 
@@ -93,7 +94,9 @@ class BadgeForm extends React.Component{
                         type="submit"
                         /* type="button" /* al estar en el form funciona como submit */ 
                         onClick={this.handleClick} 
-                        className="btn btn-primary">Save</button> 
+                        className="btn btn-primary">Save
+                    </button>
+                   {this.props.error && <p className="text-danger">{this.props.error.message}</p>}  
                 </form>
             </div>
         );

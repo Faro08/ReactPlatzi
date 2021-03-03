@@ -5,11 +5,16 @@
   background-repeat: repeat;
   margin-bottom: 1rem;
   color: #ffffff;
-  text-align: center;
+  display: flex;
+  justify-content: center;
 }
 
 .BadgeNew__container {
-  width: 100%;
+  /* width: 120%; */
   margin: auto;
-  max-width: 580px;
+  max-width: 800px;
+}
+
+.BadgeNew__hero-image {
+  max-height: 100px;
 }

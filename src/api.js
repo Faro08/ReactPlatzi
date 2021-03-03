@@ -26,9 +26,10 @@ const api = {
     list() {
       /* return []; simular vacio  */
       return callApi('/badges');
-      /* throw new Error ('Not found'); simular error */
+     /*  throw new Error ('505: Server Error'); /* simular error */ 
     },
     create(badge) {
+      /* throw new Error('505: Server Error') */
       return callApi(`/badges`, {
         method: 'POST',
         body: JSON.stringify(badge),
