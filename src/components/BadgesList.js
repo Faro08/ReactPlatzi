@@ -22,22 +22,24 @@ class BadgeList extends React.Component{
                 {this.props.badges.reverse().map( (badge) =>{
                     return(
                         <li key={badge.id} className="BadgesListItem">
-                            {/* <img src={badge.avatarUrl} alt="avatar" className="BadgesListItem__avatar"/> */}
-                            <Gravatar
-                                className="BadgesListItem__avatar"
-                                email={badge.email}
-                                alt={`${badge.firstName} ${badge.lastName}`} /* "Avatar" */
-                            />
-                            <div>
+                            <Link className="text-reset text-decoration-none" to={`/badges/${badge.id}/edit`}>
+                                {/* <img src={badge.avatarUrl} alt="avatar" className="BadgesListItem__avatar"/> */}
+                                <Gravatar
+                                    className="BadgesListItem__avatar"
+                                    email={badge.email}
+                                    alt={`${badge.firstName} ${badge.lastName}`} /* "Avatar" */
+                                />
                                 <div>
-                                    <strong>{badge.firstName} {badge.lastName}</strong>
+                                    <div>
+                                        <strong>{badge.firstName} {badge.lastName}</strong>
+                                    </div>
+                                    <div className="Twitter__name">
+                                        <span className="Twitter__logo"></span>
+                                        @{badge.twitter}
+                                    </div>
+                                    <div>{badge.jobTitle}</div>
                                 </div>
-                                <div className="Twitter__name">
-                                    <span className="Twitter__logo"></span>
-                                    @{badge.twitter}
-                                </div>
-                                <div>{badge.jobTitle}</div>
-                            </div>
+                            </Link>
                         </li>
                     );
                 })}
