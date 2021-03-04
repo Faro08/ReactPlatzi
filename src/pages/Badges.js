@@ -72,9 +72,9 @@ class Badges extends React.Component { //declarar clase
         
     }
 
-    componentWillUnmount(){
+    /* componentWillUnmount(){
         clearInterval(this.intervalId);
-    }
+    } --no dupe class members--*/
 
     fetchData = async () => {
         this.setState ({ loading: true, error: null});
@@ -104,6 +104,7 @@ class Badges extends React.Component { //declarar clase
     componentWillUnmount(){
         console.log('6.componentWillUnmount');
         clearTimeout(this.timeoutId);
+        clearInterval(this.intervalId);
     }
 
     render (){  //metodo render
