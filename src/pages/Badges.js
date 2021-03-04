@@ -8,6 +8,7 @@ import BadgesList from '../components/BadgesList';
 import PageLoading from '../components/PageLoading';
 import PageError from '../components/PageError';
 import api from '../api';
+import MiniLoader from '../components/MiniLoader';
 
 class Badges extends React.Component { //declarar clase
 
@@ -65,8 +66,14 @@ class Badges extends React.Component { //declarar clase
 
 
         /* > Solicitando datos GET */
-        this.fetchData()
+        this.fetchData();
+
+        this.intervalId = setInterval(this.fetchData, 5000);
         
+    }
+
+    componentWillUnmount(){
+        clearInterval(this.intervalId);
     }
 
     fetchData = async () => {
@@ -102,7 +109,7 @@ class Badges extends React.Component { //declarar clase
     render (){  //metodo render
         console.log('2/4.render()');
 
-        if(this.state.loading === true){ /* Solicitando datos GET */
+        if(this.state.loading === true && !this.state.data){ /* Solicitando datos GET */
             return <PageLoading/>;
         }
 
@@ -134,7 +141,7 @@ class Badges extends React.Component { //declarar clase
                     <div className="Badges__list">
                         <div className="Badges__container">
                             <BadgesList badges={this.state.data}/>
-                            
+                            {this.state.loading && <MiniLoader/>}
                         </div>
                     </div> 
                 </div>
