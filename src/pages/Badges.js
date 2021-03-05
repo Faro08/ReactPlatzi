@@ -68,7 +68,7 @@ class Badges extends React.Component { //declarar clase
         /* > Solicitando datos GET */
         this.fetchData();
 
-        this.intervalId = setInterval(this.fetchData, 5000);
+        this.intervalId = setInterval(this.fetchData, 20000);
         
     }
 
