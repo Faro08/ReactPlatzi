@@ -7,7 +7,19 @@ import DeleteBadgeModal from '../components/DeleteBadgeModal';
 import './styles/BadgeDetails.css';
 import confLogo from '../images/platziconf-logo.svg';
 
+function useIncreaseCount (max){
+    const [count, setCount] = React.useState(0)
+
+    if (count > max){
+        setCount(0)
+    }
+
+    return [count, setCount];
+}
+
 function BadgeDetails (props){
+    const [count, setCount] = useIncreaseCount(4);
+    /* const [ count, setCount] = React.useState(0) // [state, setState], el estado es el argumento de useState */
     const badge = props.badge;
     return(
         <div>
@@ -32,7 +44,12 @@ function BadgeDetails (props){
             <div className="col">
                 <h2>Actions</h2>
                 <div>
-                    <div><Link className="btn btn-primary mb-4" to={`/badges/${badge.id}`}>Editar</Link></div>
+                    <div>
+                        <button onClick={() => {setCount(count + 1)}} className="btn btn-primary mr-4">
+                            Increase count {count}
+                        </button>
+                        <Link className="btn btn-primary mb-4" to={`/badges/${badge.id}`}>Editar</Link>
+                    </div>
                 </div>
                 <div>
                     <button onClick={props.onOpenModal} className="btn btn-danger">Borrar</button>
